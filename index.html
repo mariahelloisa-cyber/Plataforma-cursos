@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marinho Educacional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"> rel="stylesheet">
+  <link rel ="stylesheet" href="style.css">
+</head>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSy...",
+    authDomain: "plataforma-cursos-a6f64.firebaseapp.com",
+    projectId: "plataforma-cursos-a6f64",
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  async function carregarCursos() {
+    const querySnapshot = await getDocs(collection(db, "Cursos"));
+
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+    });
+  }
+
+  carregarCursos();
+</script>
+
+<body>
+
+  
+  <nav>
+    <img src="logo.png">
+    <ul>
+      <li><a href="cursos.html">Cursos</a></li>
+      <li><a href="#depoimentos">Depoimentos</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="https://wa.me/554491739553" class="nav-cta">Seja um aluno</a></li>
+      <li><a href="https://wa.me/554491739553" class="nav-cta">Seja um parceiro</a></li>
+    </ul>
+  </nav>
+
+  <br>
+  
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Transforme sua <em>carreira</em> em instituições de referência nacional</h1>
+      <p> O Centro Integrado Marinho Educacional reúne mais de 4.000 cursos — de EJA e Cursos Técnicos a Bacharelados, Licenciaturas, Segundas Graduações e Pós-graduações</p>
+      <div class="hero-btns">
+        <a href="cursos.html" class="btn-primary">Ver cursos disponíveis</a>
+        <a href="#diferenciais" class="btn-secondary">Saiba mais</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">4000+</div>
+          <div class="stat-label">Cursos</div>
+        </div>
+        <div>
+          <div class="stat-num">Desde 2020</div>
+          <div class="stat-label">No mercado</div>
+        </div>
+        <div>
+          <div class="stat-num">1k+</div>
+          <div class="stat-label">Alunos formados</div>
+          <div class="hero-image">
+</div>
+      </div>
+    </div>
+        </div>
+  </section>
+ 
+ <div class="selos-container">
+    
+    <div class="selos-faixa">SELOS DE CONFIANÇA</div>
+
+    <div class="selos-carrossel">
+        <div class="selos-track">
+            
+            <div class="selos-grupo">
+                <img src="mec.png" alt="MEC" class="selos-img">
+                <img src="reclameaqui.png" alt="Reclame AQUI" class="selos-img">
+                <img src="laqi.png" alt="The Education Awards" class="selos-img">
+                <img src="inpi.png" alt="INPI" class="selos-img">
+                <img src="meta.png" alt="Meta Verificada" class="selos-img">
+                <img src="google.png" alt="5 Estrelas Google" class="selos-img">
+            </div>
+            
+            <div class="selos-grupo">
+                <img src="mec.png" alt="MEC" class="selos-img">
+                <img src="reclameaqui.png" alt="Reclame AQUI" class="selos-img">
+                <img src="laqi.png" alt="The Education Awards" class="selos-img">
+                <img src="inpi.png" alt="INPI" class="selos-img">
+                <img src="meta.png" alt="Meta Verificada" class="selos-img">
+                <img src="google.png" alt="5 Estrelas Google" class="selos-img">
+            </div>
+
+        </div>
+    </div>
+
+    <div class="selos-faixa">SAIU NA IMPRENSA</div>
+
+</div>
+ 
+  <section class="secao-destaques">
+    <h2>Comece a estudar agora com nossas opções de bolsas e financiamentos.</h2>
+    
+    <div class="container-destaques-grid" id="container-destaques">
+        </div>
+</section>
+
+<script>
+    const destaques = [
+        { n: "Bolsa ENEM", t: "Uso da nota", img: "enem.png", href: "bolsa-enem.html" },
+        { n: "Prouni", t: "Bolsas 100%", img: "prouni.png", href: "prouni.html" },
+        { n: "Bolsa ENCCEJA", t: "Concluintes", img: "enem.png", href: "encceja.html" },
+        { n: "FIES", t: "Financiamento", img: "prouni.png", href: "fies.html" }
+    ];
+
+    const containerDestaques = document.getElementById('container-destaques');
+    containerDestaques.innerHTML = ""; // Limpa antes de preencher
+
+    destaques.forEach(item => {
+        containerDestaques.innerHTML += `
+            <a href="${item.href}" class="card-destaque">
+                <div>
+                    <p class="card-destaque-tag">${item.t}</p>
+                    <h3 class="card-destaque-titulo">${item.n}</h3>
+                </div>
+                
+                <div class="card-img-container">
+                    <img src="${item.img}" alt="Imagem de ${item.n}">
+                </div>
+
+                <div class="card-btn">
+                    ❯
+                </div>
+            </a>
+        `;
+    });
+</script>
+
+<div id="blog" class="uninter-grid-container"></div>
+
+<div class="uninter-grid-container">
+    
+    <div class="uninter-card-main">
+        <h1 class="uninter-main-title">
+             A melhor educação a distância do Brasil.
+        </h1>
+    </div>
+
+    <div class="uninter-card-square">
+        <img src="formanda.jpg" alt="Formatura" class="uninter-card-img">
+        <div class="uninter-card-overlay"></div>
+        <div class="uninter-card-content">
+            <p class="uninter-subtitle">Mais de</p>
+            <h2 class="uninter-title-large">100k</h2>
+            <p class="uninter-text">de vidas transformadas</p>
+        </div>
+    </div>
+
+    <div class="uninter-card-square">
+        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=600&auto=format&fit=crop" alt="Laboratório" class="uninter-card-img">
+        <div class="uninter-card-overlay"></div>
+        <div class="uninter-card-content">
+            <p class="uninter-subtitle">Mais de</p>
+            <h2 class="uninter-title-large">4000 cursos</h2>
+            <p class="uninter-text">disponíveis</p>
+        </div>
+    </div>
+
+    <div class="uninter-card-square">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=600&auto=format&fit=crop" alt="Plataforma Virtual" class="uninter-card-img">
+        <div class="uninter-card-overlay"></div>
+        <div class="uninter-card-content">
+            <h2 class="uninter-title-medium">AVA</h2>
+            <p class="uninter-text">Plataforma Virtual Intuitiva</p>
+        </div>
+    </div>
+
+    <div class="uninter-card-square">
+        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&auto=format&fit=crop" alt="Aulas práticas" class="uninter-card-img">
+        <div class="uninter-card-overlay"></div>
+        <div class="uninter-card-content">
+            <p class="uninter-subtitle">Laboratórios para</p>
+            <h2 class="uninter-title-medium">aulas práticas</h2>
+            <p class="uninter-text">nos polos</p>
+        </div>
+    </div>
+
+    <div class="uninter-card-square">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=600&auto=format&fit=crop" alt="Polo Uninter" class="uninter-card-img">
+        <div class="uninter-card-overlay"></div>
+        <div class="uninter-card-content">
+            <p class="uninter-subtitle">Mais de</p>
+            <h2 class="uninter-title-medium">X Universidades Parceiras</h2>
+            <p class="uninter-text">em todo o Brasil</p>
+        </div>
+    </div>
+
+    <div class="uninter-card-square">
+        <img src="reclame.jpg" alt="Troféu" class="uninter-card-img">
+        <div class="uninter-card-overlay"></div>
+        <div class="uninter-card-content">
+            <h2 class="uninter-title-medium">Nota 5</h2>
+            <p class="uninter-text-small">no Reclame Aqui, o de melhor atendimento do Brasil</p>
+        </div>
+    </div>
+
+</div>
+
+  <section class="section" id="cursos">
+    <div class="section-label">Catálogo</div>
+    <div class="section-title">Cursos em destaque</div>
+    <p class="section-sub">Escolha entre dezenas de áreas e comece hoje mesmo. Todos os cursos com certificação reconhecida.</p>
+
+    <div class="cursos-grid">
+      <div class="curso-card">
+        <div class="curso-img" style="background:#e8f0fe;"></div>
+        <div class="curso-body">
+          <span class="curso-tag">Industrial</span>
+          <div class="curso-nome">Técnico em Segurança do Trabalho</div>
+          <div class="curso-meta">
+            <span> 18 meses</span>
+            <span> EAD</span>
+          </div>
+        </div>
+        <div class="curso-footer">
+          <div class="curso-preco">R$ 89/mês</div>
+          <button class="btn-saiba">Saiba mais</button>
+        </div>
+      </div>
+
+      <div class="curso-card">
+        <div class="curso-img" style="background:#fff3e0;"></div>
+        <div class="curso-body">
+          <span class="curso-tag">Gestão</span>
+          <div class="curso-nome">Técnico em Administração</div>
+          <div class="curso-meta">
+            <span> 18 meses</span>
+            <span> EAD</span>
+          </div>
+        </div>
+        <div class="curso-footer">
+          <div class="curso-preco">R$ 79/mês</div>
+          <button class="btn-saiba">Saiba mais</button>
+        </div>
+      </div>
+
+      <div class="curso-card">
+        <div class="curso-img" style="background:#e8f5e9;"></div>
+        <div class="curso-body">
+          <span class="curso-tag">Logística</span>
+          <div class="curso-nome">Técnico em Logística EAD</div>
+          <div class="curso-meta">
+            <span> 12 meses</span>
+            <span> EAD</span>
+          </div>
+        </div>
+        <div class="curso-footer">
+          <div class="curso-preco">R$ 79/mês</div>
+          <button class="btn-saiba">Saiba mais</button>
+        </div>
+      </div>
+
+      <div class="curso-card">
+        <div class="curso-img" style="background:#fce4ec;"></div>
+        <div class="curso-body">
+          <span class="curso-tag">Tecnologia</span>
+          <div class="curso-nome">Técnico em Informática</div>
+          <div class="curso-meta">
+            <span> 18 meses</span>
+            <span> EAD</span>
+          </div>
+        </div>
+        <div class="curso-footer">
+          <div class="curso-preco">R$ 89/mês</div>
+          <button class="btn-saiba">Saiba mais</button>
+        </div>
+      </div>
+
+      <div class="curso-card">
+        <div class="curso-img" style="background:#f3e5f5;"></div>
+        <div class="curso-body">
+          <span class="curso-tag">Agronegócio</span>
+          <div class="curso-nome">Técnico em Agropecuária</div>
+          <div class="curso-meta">
+            <span> 24 meses</span>
+            <span> EAD</span>
+          </div>
+        </div>
+        <div class="curso-footer">
+          <div class="curso-preco">R$ 89/mês</div>
+          <button class="btn-saiba">Saiba mais</button>
+        </div>
+      </div>
+
+  </section>
+
+
+  <section class="diferenciais" id="diferenciais">
+    <div class="section-label">Por que escolher a gente</div>
+    <div class="section-title">Educação que transforma vidas</div>
+    <p class="section-sub">Desde 2020 qualificando profissionais por todo o Brasil com flexibilidade e qualidade.</p>
+
+    <div class="dif-grid">
+      <div class="dif-card">
+        <div class="dif-icon"></div>
+        <div class="dif-titulo">Certificado reconhecido pelo MEC</div>
+        <div class="dif-desc">Diploma técnico válido em todo território nacional, emitido por instituição credenciada.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon"></div>
+        <div class="dif-titulo">Estude no seu horário</div>
+        <div class="dif-desc">Plataforma disponível 24h por dia. Concilie os estudos com trabalho e família.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon"></div>
+        <div class="dif-titulo">Mensalidades acessíveis</div>
+        <div class="dif-desc">Cursos técnicos com mensalidades que cabem no bolso, sem abrir mão da qualidade.</div>
+      </div>
+      <div class="dif-card">
+        <div class="dif-icon"></div>
+        <div class="dif-titulo">Acesso pelo celular</div>
+        <div class="dif-desc">Estude pelo computador, tablet ou smartphone. Sua evolução cabe no bolso.</div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="section depoimentos" id="depoimentos">
+    <div class="section-label">Depoimentos</div>
+    <div class="section-title">O que nossos alunos dizem</div>
+    <p class="section-sub">Histórias reais de quem transformou a carreira com nossos cursos.</p>
+
+    <div class="dep-grid">
+      
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-texto">"Consegui minha primeira CLT como técnico em segurança do trabalho logo após me formar. O curso é completo e o material muito bom."</p>
+        
+        <div class="dep-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/v4HNBZJtIs4?si=wkGwIQTwrwrX6sBQ" title="Vídeo do aluno" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="dep-autor">
+          <div class="dep-avatar"></div>
+          <div>
+            <div class="dep-nome">Carlos Eduardo</div>
+            <div class="dep-curso">Segurança do Trabalho</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-texto">"Mãe de dois filhos, consegui estudar nos horários livres. Hoje sou técnica em administração e aumentei meu salário em 40%."</p>
+        
+        <div class="dep-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/v4HNBZJtIs4?si=wkGwIQTwrwrX6sBQ" title="Vídeo do aluno" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="dep-autor">
+          <div class="dep-avatar"></div>
+          <div>
+            <div class="dep-nome">Fernanda Lima</div>
+            <div class="dep-curso">Administração EAD</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <p class="dep-texto">"Boa plataforma, professores capacitados e suporte sempre disponível. Recomendo para quem quer crescer profissionalmente."</p>
+        
+        <div class="dep-video-wrapper">
+            <iframe src="https://www.youtube.com/embed/v4HNBZJtIs4?si=wkGwIQTwrwrX6sBQ" title="Vídeo do aluno" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="dep-autor">
+          <div class="dep-avatar"></div>
+          <div>
+            <div class="dep-nome">Rodrigo Santos</div>
+            <div class="dep-curso">Logística EAD</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+</section>
+  
+  <section class="cta-section" id="contato">
+    <h2>Comece sua qualificação hoje</h2>
+    <p>Matrícula online, início imediato. Invista na sua carreira agora.</p>
+    <a href="#https://wa.me/554491739553" class="btn-primary">Quero me matricular</a>
+  </section>
+
+  
+  <footer>
+    <div>
+      <div class="footer-logo">Marinho <span>Educacional</span></div>
+      <p class="footer-desc">Educação a distância de qualidade, acessível para todos os brasileiros.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Institucional</h4>
+      <ul>
+        <li><a href="#">Sobre nós</a></li>
+        <li><a href="#">Credenciamento MEC</a></li>
+        <li><a href="#">Parcerias</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Suporte</h4>
+      <ul>
+        <li><a href="https://wa.me/554491739553">Fale conosco</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Portal do Aluno</a></li>
+        <li><a href="https://wa.me/554491739553">WhatsApp</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    Todos os direitos reservados. Site criado para fins educacionais.
+  </div>
+
+</body>
+</html>

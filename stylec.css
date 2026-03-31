@@ -1,0 +1,327 @@
+/* CONFIGURAÇÕES GERAIS */
+:root {
+    --primary-gradient: linear-gradient(90deg, #A192C1 0%, #5186BF 100%);
+    --header-top-bg: #A192C1; 
+    --header-main-bg: #ffffff;
+    --title-banner-bg: #A192C1; 
+    --footer-bg: #0f172a; 
+    --footer-text-light: #cbd5e1;
+    --text-main: #333333;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- CABEÇALHO --- */
+.header-top {
+    background-color: var(--header-top-bg);
+    color: var(--white);
+    padding: 10px 10%;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-contact, .header-student-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.header-main {
+    background-color: var(--header-main-bg);
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-box {
+    font-weight: bold;
+    font-size: 22px;
+    color: #5186BF;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #A192C1;
+}
+
+.btn-parceiro-header {
+    padding: 10px 25px;
+    border-radius: 50px;
+    background: var(--primary-gradient);
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 13px;
+    transition: transform 0.2s;
+}
+
+.btn-parceiro-header:hover {
+    transform: scale(1.05);
+}
+
+/* --- BANNER DE TÍTULO --- */
+.course-title-banner {
+    background-color: var(--title-banner-bg);
+    color: var(--white);
+    padding: 60px 10%;
+}
+
+.breadcrumb {
+    font-size: 13px;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.course-h1 {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.tag-info {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 6px 18px;
+    border-radius: 30px;
+    font-size: 12px;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+/* --- GRID DE CONTEÚDO --- */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 2.5fr 1fr;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.content-left {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.course-image {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    display: block;
+}
+
+.about-box {
+    background: var(--white);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    color: #1e293b;
+}
+
+.section-header i {
+    color: #A192C1;
+    font-size: 24px;
+}
+
+.about-text {
+    color: #475569;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* SIDEBAR (DIREITA) */
+.sticky-card {
+    position: sticky;
+    top: 100px;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    border: 1px solid #f1f5f9;
+}
+
+.sticky-card h3 {
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: #0f172a;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    color: #A192C1;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+}
+
+.info-label {
+    display: block;
+    font-size: 11px;
+    color: #94a3b8;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.info-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.btn-primary-card {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    border: none;
+    border-radius: 50px;
+    background: var(--primary-gradient);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+    transition: transform 0.2s;
+}
+
+.btn-primary-card:hover {
+    transform: translateY(-2px);
+}
+
+/* --- RODAPÉ --- */
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text-light);
+    padding: 70px 10% 40px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+}
+
+.footer-col h3 {
+    color: white;
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: var(--footer-text-light);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: white;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.newsletter-form input {
+    background: #1e293b;
+    border: 1px solid #334155;
+    padding: 12px;
+    color: white;
+    border-radius: 8px;
+    flex: 1;
+    font-size: 14px;
+}
+
+.newsletter-form button {
+    background: var(--primary-gradient);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.qr-code-box {
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    width: 140px;
+    margin-bottom: 10px;
+}
+
+.qr-code-box img { width: 100%; }
+
+.status-credenciado {
+    color: #10b981;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 992px) {
+    .container { grid-template-columns: 1fr; }
+    .sidebar { order: -1; }
+    .sticky-card { position: relative; top: 0; }
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Admin</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      padding: 40px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+    }
+
+    input {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      padding: 10px 16px;
+      border: none;
+      background: #5b80b8;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #4a6fa8;
+    }
+
+    #login {
+      background: white;
+      padding: 30px;
+      width: 350px;
+      margin: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    #painel {
+      display: none;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+
+    .lista {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .curso {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .curso b {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .curso button {
+      margin-top: 10px;
+      background: #e05252;
+    }
+
+    .curso button:hover {
+      background: #c63f3f;
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login">
+  <h2>Login Admin</h2>
+  <input id="email" placeholder="Email">
+  <input id="senha" type="password" placeholder="Senha">
+  <button onclick="login()">Entrar</button>
+</div>
+
+<!-- PAINEL -->
+<div id="painel">
+  <h2>Painel de Cursos</h2>
+
+  <div class="form">
+    <input id="nome" placeholder="Nome do curso">
+    <input id="preco" placeholder="Preço">
+    <button onclick="salvarCurso()">Salvar Curso</button>
+  </div>
+
+  <h3>Editar cursonpm install -g sanity</h3>
+  <div id="lista" class="lista"></div>
+</div>
+
+<script>
+const EMAIL = "admin";
+const SENHA = "123";
+
+function login() {
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+
+  if (email === EMAIL && senha === SENHA) {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("painel").style.display = "block";
+    listarCursos();
+  } else {
+    alert("Login inválido");
+  }
+}
+
+function salvarCurso() {
+  const nome = document.getElementById("nome").value;
+  const preco = document.getElementById("preco").value;
+
+  if (!nome || !preco) {
+    alert("Preencha tudo!");
+    return;
+  }
+
+  let cursos = JSON.parse(localStorage.getItem("cursos")) || [];
+
+  cursos.push({ nome, preco });
+
+  localStorage.setItem("cursos", JSON.stringify(cursos));
+
+  document.getElementById("nome").value = "";
+  document.getElementById("preco").value = "";
+
+  listarCursos();
+}
+
+function listarCursos() {
+  const lista = document.getElementById("lista");
+  lista.innerHTML = "";
+
+  const cursos = JSON.parse(localStorage.getItem("cursos")) || [];
+
+  cursos.forEach((curso, i) => {
+    lista.innerHTML += `
+      <div class="curso">
+        <b>${curso.nome}</b>
+        <span>R$ ${curso.preco}</span>
+        <button onclick="remover(${i})">Excluir</button>
+      </div>
+    `;
+  });
+}
+
+function remover(index) {
+  let cursos = JSON.parse(localStorage.getItem("cursos"));
+
+  cursos.splice(index, 1);
+
+  localStorage.setItem("cursos", JSON.stringify(cursos));
+
+  listarCursos();
+}
+</script>
+
+</body>
+</html>
